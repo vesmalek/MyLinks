@@ -1,0 +1,55 @@
+﻿@model List<MyLinks.Models.LinksViewModel>
+
+<div class="row">
+    <div class="col-10">
+
+        @if (Model.Count == 0)
+        {
+            <p>You don't have any links saved. Start <a asp-area="" asp-controller="Links" asp-action="Create">saving pages</a></p>
+        }
+        else
+        {
+            <h3>Saved Links</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Url</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var link in Model)
+                    {
+                        <tr>
+                            <td>@link.Title</td>
+                            <td><a href="@link.Url" target="_blank">@link.Url</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <p><a asp-area="" asp-controller="Links" asp-action="Create">Add more</a></p>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
